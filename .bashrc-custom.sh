@@ -1,29 +1,39 @@
+# Auto-screen invocation. see: http://taint.org/wk/RemoteLoginAutoScreen
+# if we're coming from a remote SSH connection, in an interactive session
+# then automatically put us into a screen(1) session.   Only try once
+# -- if $STARTED_SCREEN is set, don't try it again, to avoid looping
+# if screen fails for some reason.
+if [ "$PS1" != "" -a "${STARTED_SCREEN:-x}" = x -a "${SSH_TTY:-x}" != x ]
+then
+  STARTED_SCREEN=1 ; export STARTED_SCREEN
+  [ -d $HOME/lib/screen-logs ] || mkdir -p $HOME/lib/screen-logs
+  sleep 1
+  screen -RR && exit 0
+  # normally, execution of this rc script ends here...
+  echo "Screen failed! continuing with normal bash startup"
+fi
+# [end of auto-screen snippet]
+
+
+
 # *****************
 # My customizations 
 # *****************
 
-alias ssh1="ssh ssh.phx.nearlyfreespeech.net -l srid_hydra"
-
 # Aliases
 function e {
     # open in emacs
-    PATH=/Applications/Aquamacs.app/Contents/MacOS/bin/:$PATH emacsclient -n $*
+    PATH=/Applications/Emacs.app/Contents/MacOS/bin/:$PATH emacsclient -n $*
 }
 function e2 {
     # open in emacs - readonly
-    FILE=$(cd $(dirname "$1") && pwd)/$(basename "$1"); PATH=/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/:$PATH emacsclient -n --eval "(find-file-read-only \"$FILE\")";
+    FILE=$(cd $(dirname "$1") && pwd)/$(basename "$1"); PATH=/Applications/Emacs.app/Contents/MacOS/bin/:$PATH emacsclient -n --eval "(find-file-read-only \"$FILE\")";
 }
 
 function run_cmd {
   echo "> $1"
   $1
 }
-
-# activestate perforce environment
-export P4USER=sridharr
-export P4PORT=perforce.activestate.com:1667
-export P4CLIENT=sridharr-double
-export P4EDITOR=nano
 
 if [ `uname` == "Darwin" ]; then
   export APY26DIR=/Library/Frameworks/Python.framework/Versions/2.6
