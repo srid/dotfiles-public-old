@@ -1,0 +1,25 @@
+# detach on hangup
+autodetach on
+
+defscrollback 9999
+
+# don't display the copyright page
+startup_message off
+
+caption     always         "%{+b rk}%H%{gk} %50=%{rk}%n.%t"
+hardstatus  alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+# always use bash
+shell /bin/bash
+
+screen -t [pypm]   		   	0
+screen       				1	
+screen -t [apy]     		2
+screen              		3
+screen -t [apy:2]  			4
+screen                      5
+
+
+
+# erase background with current bg color
+defbce "on"

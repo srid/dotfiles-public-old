@@ -1,0 +1,15 @@
+[ui]
+username = srid
+
+[extensions]
+hgext.convert =
+graphlog =
+fetch =
+hgext.bookmarks =
+# progress =
+
+[hooks]
+# commit.autopush = hg push
+
+[alias]
+slog = log --template '{rev}:{node|short} {desc|firstline}\n'

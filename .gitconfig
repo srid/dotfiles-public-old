@@ -1,0 +1,12 @@
+[user]
+	email = sridharr@activestate.com
+	name = Sridhar Ratnakumar
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	di = diff
+
+[core]
+	excludesfile = /home/srid/.gitignore
