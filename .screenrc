@@ -1,10 +1,10 @@
+# auto-screen support; see http://taint.org/wk/RemoteLoginAutoScreen
 # detach on hangup
 autodetach on
+# no startup msg
+startup_message off
 
 defscrollback 9999
-
-# don't display the copyright page
-startup_message off
 
 caption     always         "%{+b rk}%H%{gk} %50=%{rk}%n.%t"
 hardstatus  alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
@@ -12,13 +12,12 @@ hardstatus  alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
 # always use bash
 shell /bin/bash
 
-screen -t [pypm]   		   	0
+screen -t [Alice]   		   	0
 screen       				1	
-screen -t [apy]     		2
+screen -t [Jack]     		2
 screen              		3
-screen -t [apy:2]  			4
+screen -t [Richard]  			4
 screen                      5
-
 
 
 # erase background with current bg color
