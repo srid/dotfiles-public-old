@@ -10,3 +10,4 @@
 
 [core]
 	excludesfile = /home/srid/.gitignore
+	quotepath = false

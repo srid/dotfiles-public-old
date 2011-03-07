@@ -126,7 +126,7 @@ function restart_xbindkeys {
 if [ -f ~/.keychain/${HOSTNAME}-sh ]
 then
   . ~/.keychain/${HOSTNAME}-sh
-  ssh-add ~/.ssh/apy*.id_rsa ~/.ssh/srid*.id_rsa
+  ssh-add ~/.ssh/*.id_rsa
 fi
 
 
