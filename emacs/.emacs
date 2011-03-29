@@ -2,9 +2,9 @@
 ;; KISS (Keep It Simple Stupid)
 
 ;; Windows setup instructions:
-;;  %HOME%> mklink .emacs "Dropbox\dotfiles\emacs\.emacs"
+;;  %HOME%> mklink .emacs "code\dotfiles\emacs\.emacs"
 
-(let* ((emacsdir (concat (getenv "HOME")  "/Dropbox/dotfiles/emacs/"))
+(let* ((emacsdir (concat (getenv "HOME")  "/code/dotfiles/emacs/"))
        (extdir   (concat emacsdir "external/"))
        (datadir  (concat emacsdir "data")))
   ;; Load paths
