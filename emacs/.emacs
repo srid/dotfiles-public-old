@@ -10,6 +10,7 @@
   ;; Load paths
   (add-to-list 'load-path extdir)
 
+  ; already in emacs24
   ;(when
   ;  (load
   ;   (expand-file-name "~/.emacs.d/elpa/package.el"))

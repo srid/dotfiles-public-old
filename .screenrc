@@ -10,7 +10,7 @@ caption     always         "%{+b rk}%H%{gk} %50=%{rk}%n.%t"
 hardstatus  alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
 
 # always use bash
-shell /bin/bash
+shell /bin/zsh
 
 screen -t [Alice]   		   	0
 screen       				1	

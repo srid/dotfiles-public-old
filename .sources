@@ -11,15 +11,19 @@
 ~/as/code3-git git  git@git.activestate.com:code3.git
 ~/as/gitolite-admin git  git@git.activestate.com:gitolite-admin.git
 ~/as/pypm      git git@git.activestate.com:pypm.git
+~/as/asalert svn https://svn.activestate.com/repos/activestate/webops/asalert/trunk
+
 ~/code/go-tool git git@github.com:srid/go-tool.git
 
+~/code/pypy hg http://bitbucket.org/pypy/pypy
+~/code/cpython hg http://hg.python.org/cpython
 ~/code/srid.github.com  git git@github.com:srid/srid.github.com.git
 ~/code/python-readline		git	git@github.com:ludwigschwardt/python-readline.git
 ~/code/fablib              git git@github.com:srid/fablib.git
 ~/code/weeklyreddit              git git@github.com:srid/weeklyreddit.git
 ~/code/appdirs              git git@github.com:ActiveState/appdirs.git
 ~/code/applib               git git@github.com:ActiveState/applib.git
-~/code/pythonselect         git git@github.com:ActiveState/pythonselect.git
+~/as/pythonselect         git git@github.com:ActiveState/pythonselect.git
 ~/code/mk        git git@github.com:ActiveState/mk.git
 ~/code/haietmoba-reminder	git git@github.com:srid/haietmoba-reminder.git
 ~/code/readability          git git@github.com:srid/readability.git
