@@ -30,6 +30,16 @@
   (set-default 'fill-column 80)
   (setq frame-title-format "emacs")
 
+  ;; Package management
+  ;; =================
+  ;; Add the original Emacs Lisp Package Archive
+  (package-initialize)
+  (add-to-list 'package-archives
+	       '("elpa" . "http://tromey.com/elpa/"))
+  ;; Add the user-contributed repository
+  (add-to-list 'package-archives
+	       '("marmalade" . "http://marmalade-repo.org/packages/"))
+
   ;; Window management
   ;; =================
 
@@ -76,6 +86,7 @@
   ;; Look and feel
   ;; =============
   (set-default-font "Consolas-14")
+  (require 'color-theme)
 
   ; (require 'color-theme)
   ;; current fav -- (color-theme-katester)
