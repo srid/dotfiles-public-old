@@ -1,3 +1,6 @@
+export CLICOLOR=1
+
+
 # Auto-screen invocation. see: http://taint.org/wk/RemoteLoginAutoScreen
 # if we're coming from a remote SSH connection, in an interactive session
 # then automatically put us into a screen(1) session.   Only try once

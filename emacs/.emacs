@@ -77,9 +77,10 @@
   ;; =============
   (set-default-font "Consolas-14")
 
-  (require 'color-theme)
-  (load "color-theme-library.el")
-  (color-theme-katester)
+  ; (require 'color-theme)
+  ;; current fav -- (color-theme-katester)
+  (load "color-theme-solarized.el")
+  (color-theme-solarized-dark)
 
 
   
@@ -134,10 +135,10 @@
 
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(backup-by-copying-when-linked t)
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(column-number-mode t)
@@ -147,6 +148,7 @@
  '(inhibit-startup-screen t)
  '(javascript-indent-level 2)
  '(line-number-mode t)
+ '(python-python-command "/usr/local/bin/python")
  '(rcirc-server-alist (quote (("irc.mozilla.org" :nick "srid" :channels nil \#komodo nil) ("irc.freenode.net" :channels ("#emacs")))))
  '(rcirc-track-minor-mode t)
  '(scroll-bar-mode nil)
@@ -159,8 +161,8 @@
 
 (put 'downcase-region 'disabled nil)
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
