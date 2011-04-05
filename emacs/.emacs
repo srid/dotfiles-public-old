@@ -56,6 +56,17 @@
   (require 'maxframe) 
   (add-hook 'window-setup-hook 'maximize-frame t)
 
+  (load "workspaces.el")
+  (defun workspace-2nd ()
+    (interactive)
+    (workspace-goto ?2))
+  (defun workspace-1st ()
+    (interactive)
+    (workspace-goto ?1))
+  (global-set-key (kbd "C-c 1") 'workspace-1st)
+  (global-set-key (kbd "C-c 2") 'workspace-2nd)
+  
+
   ;; darkroom
   (require 'darkroom-mode)
 
@@ -114,7 +125,6 @@
   (color-theme-deep-blue)
   ; (load "color-theme-solarized.el")
   ; (color-theme-solarized-dark)
-
 
   
   ;; Programming

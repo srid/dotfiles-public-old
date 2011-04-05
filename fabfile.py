@@ -8,11 +8,10 @@ def emacs_update():
     """Update emacs dependencies
     """
     with sh.cd(P.join('emacs', 'external')):
-        # Update anything.el
         local('wget -N http://www.emacswiki.org/emacs/download/anything.el')
         local('wget -N http://www.emacswiki.org/emacs/download/anything-config.el')
         local('wget -N http://www.emacswiki.org/emacs/download/anything-match-plugin.el')
-    
-    
+
+        local('wget -N http://www.emacswiki.org/emacs/download/workspaces.el')
     
 
