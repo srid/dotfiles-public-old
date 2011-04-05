@@ -9,6 +9,12 @@
        (datadir  (concat emacsdir "data")))
   ;; Load paths
   (add-to-list 'load-path extdir)
+  (add-to-list 'load-path (concat extdir "eproject"))
+
+  ;; Set proper PATH
+  (when (equal system-type 'darwin)
+    (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+    (push "/usr/local/bin" exec-path))
 
   ; already in emacs24
   ;(when
@@ -29,6 +35,14 @@
   (fset 'yes-or-no-p 'y-or-n-p)
   (set-default 'fill-column 80)
   (setq frame-title-format "emacs")
+
+  ;; Project
+  (require 'eproject)
+  (require 'eproject-extras)
+  (define-project-type python-mk (generic)
+    "Trent's mk utility"
+    (look-for "Makefile.py")
+    :relevant-files ("\\.py$" "\\.html$"))
 
   ;; Package management
   ;; =================
@@ -74,7 +88,25 @@
 
   ;; anything
   (require 'anything)
+  (require 'anything-config)
   (global-set-key (kbd "M-i") 'anything)
+
+  (defvar anything-sources
+    `(((name . "Goto line")
+       (filtered-candidate-transformer . (lambda (candidates source)
+                                           (if (string-match "^[0-9]*$" anything-pattern)
+                                               (with-current-buffer anything-current-buffer
+                                                 (if (>= (max-line) (string-to-number anything-pattern))
+                                                     (list (concat "line number: " anything-pattern))
+                                                   nil))
+                                             nil)
+                                           ))
+       (action . (("Goto line" . (lambda (arg)
+                                   (if (string-match "[0-9]*$" arg)
+                                       (let ((line-number (string-to-number (match-string 0 arg))))
+                                         (goto-line line-number)))))))
+       )))
+
 
   ;; ido
   (require 'ido)
