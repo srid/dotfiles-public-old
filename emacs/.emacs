@@ -89,24 +89,17 @@
   ;; anything
   (require 'anything)
   (require 'anything-config)
+  (require 'anything-match-plugin)
   (global-set-key (kbd "M-i") 'anything)
-
-  (defvar anything-sources
-    `(((name . "Goto line")
-       (filtered-candidate-transformer . (lambda (candidates source)
-                                           (if (string-match "^[0-9]*$" anything-pattern)
-                                               (with-current-buffer anything-current-buffer
-                                                 (if (>= (max-line) (string-to-number anything-pattern))
-                                                     (list (concat "line number: " anything-pattern))
-                                                   nil))
-                                             nil)
-                                           ))
-       (action . (("Goto line" . (lambda (arg)
-                                   (if (string-match "[0-9]*$" arg)
-                                       (let ((line-number (string-to-number (match-string 0 arg))))
-                                         (goto-line line-number)))))))
-       )))
-
+  (setq anything-sources
+        (list anything-c-source-buffers
+              anything-c-source-find-files
+              anything-c-source-file-name-history
+              anything-c-source-info-pages
+              anything-c-source-man-pages
+              anything-c-source-file-cache
+              anything-c-source-emacs-commands
+              ))
 
   ;; ido
   (require 'ido)
@@ -120,10 +113,11 @@
   (set-default-font "Consolas-14")
   (require 'color-theme)
 
-  ; (require 'color-theme)
-  ;; current fav -- (color-theme-katester)
-  (load "color-theme-solarized.el")
-  (color-theme-solarized-dark)
+  (require 'color-theme)
+  (color-theme-initialize)
+  (color-theme-katester)
+  ; (load "color-theme-solarized.el")
+  ; (color-theme-solarized-dark)
 
 
   
@@ -192,6 +186,9 @@
  '(javascript-indent-level 2)
  '(line-number-mode t)
  '(python-python-command "/usr/local/bin/python")
+ '(rcirc-default-full-name "Sridhar Ratnakumar")
+ '(rcirc-default-nick "srid")
+ '(rcirc-default-user-name "srid")
  '(rcirc-server-alist (quote (("irc.mozilla.org" :nick "srid" :channels nil \#komodo nil) ("irc.freenode.net" :channels ("#emacs")))))
  '(rcirc-track-minor-mode t)
  '(scroll-bar-mode nil)
