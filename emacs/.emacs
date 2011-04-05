@@ -13,14 +13,14 @@
 
   ;; Set proper PATH
   (when (equal system-type 'darwin)
-    (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-    (push "/usr/local/bin" exec-path))
-
-  ; already in emacs24
-  ;(when
-  ;  (load
-  ;   (expand-file-name "~/.emacs.d/elpa/package.el"))
-  ;(package-initialize))
+    (setenv "PATH" (mapconcat 'identity
+                              (list "/usr/local/bin"
+                                    (expand-file-name "~/Library/Python/2.7/bin")
+                                    (getenv "PATH"))
+                              ":"))
+    (push "/usr/local/bin" exec-path)
+    (push (expand-file-name "~/Library/Python/2.7/bin") exec-path)
+    )
 
   ;; Personal information
   ;; ====================
@@ -36,23 +36,18 @@
   (set-default 'fill-column 80)
   (setq frame-title-format "emacs")
 
-  ;; Project
-  (require 'eproject)
-  (require 'eproject-extras)
-  (define-project-type python-mk (generic)
-    "Trent's mk utility"
-    (look-for "Makefile.py")
-    :relevant-files ("\\.py$" "\\.html$"))
-
   ;; Package management
   ;; =================
   ;; Add the original Emacs Lisp Package Archive
-  (package-initialize)
-  (add-to-list 'package-archives
-	       '("elpa" . "http://tromey.com/elpa/"))
-  ;; Add the user-contributed repository
-  (add-to-list 'package-archives
-	       '("marmalade" . "http://marmalade-repo.org/packages/"))
+  ;; (when
+  ;;   (load
+  ;;    (expand-file-name "~/.emacs.d/elpa/package.el"))
+  ;;   (package-initialize))
+  ;; (add-to-list 'package-archives
+  ;; 	       '("elpa" . "http://tromey.com/elpa/"))
+  ;; ;; Add the user-contributed repository
+  ;; (add-to-list 'package-archives
+  ;; 	       '("marmalade" . "http://marmalade-repo.org/packages/"))
 
   ;; Window management
   ;; =================
@@ -100,6 +95,10 @@
               anything-c-source-emacs-commands
               ))
 
+  ;; ipython
+  ;; (setq ipython-command (concat (getenv "HOME") "/Library/Python/2.7/bin/ipython"))
+  ;; (require 'ipython)
+
   ;; ido
   (require 'ido)
   (ido-mode t)
@@ -111,10 +110,8 @@
   ;; =============
   (set-default-font "Consolas-14")
   (require 'color-theme)
-
-  (require 'color-theme)
   (color-theme-initialize)
-  (color-theme-katester)
+  (color-theme-deep-blue)
   ; (load "color-theme-solarized.el")
   ; (color-theme-solarized-dark)
 
