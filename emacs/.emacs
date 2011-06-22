@@ -162,6 +162,16 @@
   (add-hook 'find-file-hook 'smart-buffer-name)
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'nil)
+
+  ;; Peepopen
+  ;; ========
+   (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
+   (require 'textmate)
+   (add-to-list 'load-path "~/.emacs.d/vendor/")
+   (require 'peepopen)
+   (textmate-mode)
+   (setq ns-pop-up-frames nil)
+
   
   
   ;; IRC (not used)
