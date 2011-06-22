@@ -1,6 +1,9 @@
+# pypm install fabric
+
 import os.path as P
 from fabric.api import *
 
+import pypm
 from applib import sh
 
 
@@ -15,3 +18,4 @@ def emacs_update():
         local('wget -N http://www.emacswiki.org/emacs/download/workspaces.el')
     
 
+up = emacs_update
