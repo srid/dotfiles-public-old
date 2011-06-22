@@ -163,6 +163,11 @@
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'nil)
 
+  ;; go
+  (add-to-list 'load-path "/usr/local/Cellar/go//HEAD/misc/emacs/" t)  ;; from mac brew
+  (require 'go-mode-load)
+  
+
   ;; Peepopen
   ;; ========
    (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
