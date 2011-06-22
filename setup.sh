@@ -38,6 +38,6 @@ if [ `uname` == "Darwin" ]; then
     echo
     echo "!!!!!! READ THIS !!!!!"
     echo
-    echo "You're on a Mac. Please create a ~/.bashrc that invokes ~/.profile"
-    echo "Then, do a '. ~/.bashrc-custom.sh' in ~/.profile"
+    echo "You're on a Mac."
+    echo "Add '. ~/.bashrc-custom.sh' in ~/.profile"
 fi

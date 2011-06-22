@@ -171,5 +171,7 @@ alias suxx='svn up --ignore-externals && svn st --ignore-externals'
 
 . ~/Dropbox/dotfiles/z.sh
 
+. ~/.nvm/nvm.sh
+
 
 rex=/net/nas/data/languages/pypm/sites/rex
