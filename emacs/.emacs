@@ -56,15 +56,17 @@
   (require 'maxframe) 
   (add-hook 'window-setup-hook 'maximize-frame t)
 
-  (load "workspaces.el")
-  (defun workspace-2nd ()
-    (interactive)
-    (workspace-goto ?2))
-  (defun workspace-1st ()
-    (interactive)
-    (workspace-goto ?1))
-  (global-set-key (kbd "C-c 1") 'workspace-1st)
-  (global-set-key (kbd "C-c 2") 'workspace-2nd)
+  ;; Sometimeds fails with Lisp error: (void-function position)
+  ;; (when (equal system-type 'darwin)
+  ;;   (load "workspaces.el")
+  ;;   (defun workspace-2nd ()
+  ;;     (interactive)
+  ;;     (workspace-goto ?2))
+  ;;   (defun workspace-1st ()
+  ;;     (interactive)
+  ;;     (workspace-goto ?1))
+  ;;   (global-set-key (kbd "C-c 1") 'workspace-1st)
+  ;;   (global-set-key (kbd "C-c 2") 'workspace-2nd))
   
 
   ;; darkroom
