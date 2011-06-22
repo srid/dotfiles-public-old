@@ -11,8 +11,8 @@ function symlink {
     ln -sf $target $link
 }
 
-for dotfile in .bashrc-custom.sh .fonts .gitconfig .hgrc .sawfish .screenrc \
-               .wmii-3 .xbindkeysrc .zshrc .vimrc .vim .buildout .sources;
+for dotfile in .bashrc-custom.sh .fonts .gitconfig .hgrc .screenrc \
+               .xbindkeysrc .zshrc .vimrc .buildout .sources;
 do
     symlink `pwd`/$dotfile ~/$dotfile;
 done
