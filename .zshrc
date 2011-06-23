@@ -23,4 +23,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
+# rvm
 [[ -s "/Users/sridharr/.rvm/scripts/rvm" ]] && source "/Users/sridharr/.rvm/scripts/rvm" 
+
+# emacs
+function e {
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $*
+}
