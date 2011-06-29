@@ -12,7 +12,7 @@ function symlink {
 }
 
 for dotfile in .bashrc-custom.sh .fonts .gitconfig .hgrc .screenrc \
-               .xbindkeysrc .zshrc .vimrc .buildout .sources;
+               .xbindkeysrc .zshrc .vimrc .buildout .sources .tmux.conf;
 do
     symlink `pwd`/$dotfile ~/$dotfile;
 done
