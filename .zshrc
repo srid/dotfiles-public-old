@@ -31,6 +31,16 @@ keychain ~/.ssh/*id_rsa
 [[ -f ~/.keychain/`hostname`-sh ]] && source ~/.keychain/`hostname`-sh
 
 # emacs
-function e {
-    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $*
-}
+if [[ `hostname` =~ elephant(\..*)? ]]; then
+    function e {
+        /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $*
+    }
+else
+    function e {
+        # requires:
+        #  scp ~/.emacs.d/server/server $hostname:
+        # TODO: automate HOME replacement
+        emacsclient -n -f ~/server /Volumes/`hostname`/$*
+    }
+fi
+    

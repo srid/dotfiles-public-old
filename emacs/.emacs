@@ -191,14 +191,18 @@
                  "tell application \"Safari\" to activate") url))
     (start-process (concat "open " url) nil "open" url)))
 
+  ;; remote editing
+  (setq server-use-tcp t)
+  (setq server-host "elephant")
+
   (server-start))
 
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(backup-by-copying-when-linked t)
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(column-number-mode t)
@@ -209,7 +213,6 @@
  '(javascript-indent-level 2)
  '(line-number-mode t)
  '(python-python-command "/usr/local/bin/python")
- '(rcirc-default-full-name "Sridhar Ratnakumar")
  '(rcirc-default-nick "srid")
  '(rcirc-default-user-name "srid")
  '(rcirc-server-alist (quote (("irc.mozilla.org" :nick "srid" :channels nil \#komodo nil) ("irc.freenode.net" :channels ("#emacs")))))
@@ -224,8 +227,8 @@
 
 (put 'downcase-region 'disabled nil)
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  )
