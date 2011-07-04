@@ -26,6 +26,10 @@ export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:/usr/bi
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
+# ssh keys
+keychain ~/.ssh/*id_rsa
+[[ -f ~/.keychain/`hostname`-sh ]] && source ~/.keychain/`hostname`-sh
+
 # emacs
 function e {
     /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $*
