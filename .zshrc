@@ -21,7 +21,12 @@ plugins=(git brew github osx svn)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+
+if [[ `hostname` =~ elephant(\..*)? ]]; then
+    export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+else
+    export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
@@ -39,10 +44,9 @@ else
     function e {
         # requires:
         #  scp ~/.emacs.d/server/server $hostname:
-        # TODO: automate HOME replacement
-	F=${*:a}
-	F=${F/$HOME/\/Volumes\/`hostname`}
-	echo "Opening $F"
+
+	    F=${F/$HOME/\/Volumes\/`hostname`}
+	    echo "Opening $F"
         emacsclient -n -f ~/server $F
     }
 fi
