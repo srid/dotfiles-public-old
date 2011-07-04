@@ -21,7 +21,6 @@ match OverLength /\%81v.*/
 cmap w!! %!sudo tee > /dev/null %
 
 syn on
-colorscheme wombat
 
 filetype plugin indent on
 filetype on
