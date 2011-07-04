@@ -44,7 +44,7 @@ else
     function e {
         # requires:
         #  scp ~/.emacs.d/server/server $hostname:
-
+        F=${*:a}
 	    F=${F/$HOME/\/Volumes\/`hostname`}
 	    echo "Opening $F"
         emacsclient -n -f ~/server $F
