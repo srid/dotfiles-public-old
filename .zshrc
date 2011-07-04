@@ -40,7 +40,9 @@ else
         # requires:
         #  scp ~/.emacs.d/server/server $hostname:
         # TODO: automate HOME replacement
-        emacsclient -n -f ~/server /Volumes/`hostname`/$*
+	F=`readlink -m $*`
+	F=${F/$HOME/\/Volumes\/`hostname`}
+	echo "Opening $F"
+        emacsclient -n -f ~/server $F
     }
 fi
-    
