@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 # rvm
-[[ -s "/Users/sridharr/.rvm/scripts/rvm" ]] && source "/Users/sridharr/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # emacs
 function e {
