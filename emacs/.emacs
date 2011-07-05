@@ -100,8 +100,12 @@
   (require 'anything-match-plugin)
   (global-set-key (kbd "M-i") 'anything)
   (setq anything-sources
-        (list anything-c-source-buffers
+        (list anything-c-source-bookmarks
+              anything-c-source-buffers
+              anything-c-source-recentf
               anything-c-source-file-name-history
+              anything-c-source-files-in-current-dir
+              ;; XXX: info/man sources are undesirably slow
               ;; anything-c-source-info-pages
               ;; anything-c-source-man-pages
               anything-c-source-file-cache
