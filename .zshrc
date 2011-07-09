@@ -38,7 +38,9 @@ keychain ~/.ssh/*id_rsa
 # emacs
 if [[ `hostname` =~ elephant(\..*)? ]]; then
     function e {
-        /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $*
+        /Applications/Emacs.app/Contents/MacOS/bin/emacsclient \
+            -n \
+            -f ~/.emacs.d/server/server $*
     }
 else
     function e {
