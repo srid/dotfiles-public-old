@@ -197,7 +197,8 @@
 
   ;; remote editing
   (setq server-use-tcp t)
-  (setq server-host "elephant")
+  (setq server-host (replace-regexp-in-string
+                     "\n" "" (shell-command-to-string "hostname")))
 
   (server-start))
 
