@@ -155,6 +155,15 @@
   (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
+  ;; erlang
+  (add-to-list 'load-path
+               "/usr/local/Cellar/erlang/R14B03/lib/erlang/lib/tools-2.6.6.4/emacs")q
+  (setq erlang-root-dir
+        "/usr/local/Cellar/erlang/R14B03/")
+  (add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B03/bin/")
+  (require 'erlang-start)
+  (defvar inferior-erlang-prompt-timeout t)
+
   ;; smart buffer names
   (defun smart-buffer-name ()
     "Rename the buffer to contain SERVER name"
