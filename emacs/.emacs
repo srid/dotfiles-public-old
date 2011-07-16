@@ -157,7 +157,7 @@
 
   ;; erlang
   (add-to-list 'load-path
-               "/usr/local/Cellar/erlang/R14B03/lib/erlang/lib/tools-2.6.6.4/emacs")q
+               "/usr/local/Cellar/erlang/R14B03/lib/erlang/lib/tools-2.6.6.4/emacs")
   (setq erlang-root-dir
         "/usr/local/Cellar/erlang/R14B03/")
   (add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B03/bin/")
