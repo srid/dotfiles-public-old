@@ -52,3 +52,7 @@ else
         emacsclient -n -f ~/server $F
     }
 fi
+
+
+# auto correction is more annoying than helpful
+unsetopt correct_all
