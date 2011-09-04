@@ -30,20 +30,15 @@
 # NOTE: use `xbindkeys -k` to come up with keycodes
 
 
-"wmctrl -x -a Komodo"
-    m:0xc + c:44
-    Control+Alt + j
-
-"wmctrl -x -a Thunderbird"
-    m:0xc + c:29
-    Control+Alt + y 
-
-"wmctrl -a sridharr@ubuntu || wmctrl -x -a Terminal"
+"wmctrl -a srid@behemoth || wmctrl -x -a Terminal"
     m:0xc + c:45
     Control+Alt + k 
 
+"wmctrl -x -a emacs"
+    m:0xc + c:44
+    Control+Alt + j
 
-"wmctrl -x -a Chrome"
+"wmctrl -x -a Firefox"
     m:0xc + c:30
     Control+Alt + u
 
