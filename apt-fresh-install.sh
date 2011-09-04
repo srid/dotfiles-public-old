@@ -1,16 +1,16 @@
 # script to install often used programs on a newly installed Ubuntu machine
 # .. split by various sections of priority
 
-INSTALL="aptitude install -y "
+INSTALL="apt-get install -y "
 
 # the essentials
-$INSTALL vim-gnome emacs screen git-core wmctrl
+$INSTALL emacs-snapshot-gtk tmux zsh git-core wmctrl
 
 # dev setup
-$INSTALL build-essential python-dev 
+$INSTALL build-essential python-dev
 
 # nice to have
-$INSTALL ack-grep colordiff multitail gnome-do
+$INSTALL ack-grep colordiff multitail tig
 
 # multimedia
 $INSTALL msttcorefonts
