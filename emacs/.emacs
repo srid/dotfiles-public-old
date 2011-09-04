@@ -53,8 +53,8 @@
   ;; =================
 
   ;; M-x maximize-frame; M-x restore-frame
-  (require 'maxframe) 
-  (add-hook 'window-setup-hook 'maximize-frame t)
+  ; (require 'maxframe) 
+  ; (add-hook 'window-setup-hook 'maximize-frame t)
 
   ;; Sometimeds fails with Lisp error: (void-function position)
   ;; (when (equal system-type 'darwin)
@@ -155,15 +155,6 @@
   (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
-  ;; erlang
-  (add-to-list 'load-path
-               "/usr/local/Cellar/erlang/R14B03/lib/erlang/lib/tools-2.6.6.4/emacs")
-  (setq erlang-root-dir
-        "/usr/local/Cellar/erlang/R14B03/")
-  (add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B03/bin/")
-  (require 'erlang-start)
-  (defvar inferior-erlang-prompt-timeout t)
-
   ;; smart buffer names
   (defun smart-buffer-name ()
     "Rename the buffer to contain SERVER name"
@@ -172,23 +163,19 @@
         (let ((serv-name (match-string 1 file-name)))
           (rename-buffer (concat "[" serv-name "] " (buffer-name)))))))
 
-  (add-hook 'find-file-hook 'smart-buffer-name)
+  ;; (add-hook 'find-file-hook 'smart-buffer-name)
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'nil)
 
-  ;; go
-  (add-to-list 'load-path "/usr/local/Cellar/go//HEAD/misc/emacs/" t)  ;; from mac brew
-  (require 'go-mode-load)
-  
-
   ;; Peepopen
   ;; ========
-   (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
-   (require 'textmate)
-   (add-to-list 'load-path "~/.emacs.d/vendor/")
-   (require 'peepopen)
-   (textmate-mode)
-   (setq ns-pop-up-frames nil)
+  (when (equal system-type 'darwin)
+    (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
+    (require 'textmate)
+    (add-to-list 'load-path "~/.emacs.d/vendor/")
+    (require 'peepopen)
+    (textmate-mode)
+    (setq ns-pop-up-frames nil))
 
   
   
@@ -213,16 +200,17 @@
 
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(backup-by-copying-when-linked t)
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(column-number-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(gnuserv-frame (quote gnuserv-main-frame-function))
  '(hfy-optimisations (quote (skip-refontification keep-overlays)))
+ '(inferior-lisp-program "lein repl")
  '(inhibit-startup-screen t)
  '(javascript-indent-level 2)
  '(line-number-mode t)
