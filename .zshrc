@@ -53,6 +53,13 @@ else
     }
 fi
 
+# svn
+function svnst {
+    svn st --ignore-externals  | grep -v "^X"
+}
+function svndi {
+    svn diff | colordiff | less -R
+}
 
 # auto correction is more annoying than helpful
 unsetopt correct_all
