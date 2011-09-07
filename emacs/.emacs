@@ -37,7 +37,6 @@
          (expand-file-name "~/.emacs.d/elpa/package.el"))
       (package-initialize)))
 
-
   (defun kill-all-buffers ()
     "Kill all buffers."
     (interactive)
@@ -50,17 +49,13 @@
           (delq (current-buffer) 
                 (remove-if-not 'buffer-file-name (buffer-list)))))
 
-  ;; hilight current line
-  (global-hl-line-mode 1)
-  ;; (light-symbol-mode)
-
   ;; C-x o C-x o ==> C-x p
-  (defun other-other-window()
+  (defun other-other-window ()
     (interactive)
     (select-window (previous-window)))
   (global-set-key (kbd "C-x p") 'other-other-window)
 
-  ;; anything
+  ;; buffer switch -- M-i and M-n
   (require 'anything)
   (require 'anything-config)
   (require 'anything-match-plugin)
@@ -71,57 +66,37 @@
               anything-c-source-recentf
               anything-c-source-file-name-history
               anything-c-source-files-in-current-dir
-              ;; XXX: info/man sources are undesirably slow
-              ;; anything-c-source-info-pages
-              ;; anything-c-source-man-pages
-              anything-c-source-file-cache
-              ;; anything-c-source-emacs-commands
-              ))
-
-  ;; ido
+              anything-c-source-file-cache))
   (require 'ido)
   (ido-mode t)
   (setq ido-enable-flex-matching t)
   (global-set-key (kbd "M-n") 'ido-switch-buffer)
 
-  ;; Look and feel
-  ;; =============
-  (if (equal system-type 'darwin)
+  ;; appearance
+  (if osx
     (set-default-font "Consolas-14")
     (set-default-font "Consolas-12"))
   (require 'color-theme)
   (color-theme-initialize)
   (color-theme-deep-blue)
-
+  (global-hl-line-mode 1)
   
   ;; Programming
-  ;; ===========
-  ;; give me spaces
-  (setq-default indent-tabs-mode nil)
-  
-  (require 'tramp)
-  (setq tramp-default-method "plink")
+  (setq-default indent-tabs-mode nil)         ;; spaces, not tabs!
+  (require 'yasnippet-bundle)                 ;; snippets
+  (require 'uniquify)                         ;; duplicate buffer names --
+  (setq uniquify-buffer-name-style 'forward)
 
-  (require 'yasnippet-bundle)
-
-  (add-to-list 'load-path (concat extdir "git-contrib-emacs"))
-  (require 'git)
-
+  ;; major modes
   (require 'yaml-mode)
   (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-
   (add-to-list 'auto-mode-alist '("\\.ppatch$" . diff-mode))
-
   (require 'coffee-mode)
   (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
-  (require 'uniquify)
-  (setq uniquify-buffer-name-style 'forward)
-
   ;; Peepopen
-  ;; ========
-  (when (equal system-type 'darwin)
+  (when osx
     (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
     (require 'textmate)
     (add-to-list 'load-path "~/.emacs.d/vendor/")
@@ -129,13 +104,15 @@
     (textmate-mode)
     (setq ns-pop-up-frames nil))
 
-
-  ;; remote editing
-  (setq server-use-tcp t)
-  (setq server-host
-        (replace-regexp-in-string "\n" ""
-                                  (shell-command-to-string "hostname")))
-  (server-start))
+  ;; setup for remote emacsclient runs
+  (defun tcp-server-start ()
+    (interactive)
+    (setq server-use-tcp t)
+    (let ((hostname (shell-command-to-string "hostname")))
+      (setq server-host (replace-regexp-in-string "\n" "" hostname)))
+    (server-force-delete)
+    (server-start))
+  (tcp-server-start))
 
 
 (custom-set-variables
@@ -173,10 +150,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
