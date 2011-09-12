@@ -112,6 +112,13 @@
       (setq server-host (replace-regexp-in-string "\n" "" hostname)))
     (server-force-delete)
     (server-start))
+
+  ;; invoke this when switching loc context : work <-> home
+  (defun reset-location ()
+    (interactive)
+    (kill-all-buffers)
+    (tcp-server-start))
+  
   (tcp-server-start))
 
 
