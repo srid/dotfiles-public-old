@@ -9,11 +9,16 @@
     branch = auto
 
 [alias]
-	st = status
+    l  = log --oneline --decorate
+	st = status -sb
 	ci = commit
 	co = checkout
 	br = branch
-	di = diff
+	di = diff --word-diff
 
 [core]
 	quotepath = false
+
+# http://defunkt.io/hub/
+[github]
+	user = srid
