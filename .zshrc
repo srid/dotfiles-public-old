@@ -28,9 +28,6 @@ else
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 fi
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-
 # ssh keys
 keychain ~/.ssh/*id_rsa
 [[ -f ~/.keychain/`hostname`-sh ]] && source ~/.keychain/`hostname`-sh
