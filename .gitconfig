@@ -1,6 +1,13 @@
 [user]
 	email = sridharr@activestate.com
 	name = Sridhar Ratnakumar
+
+[color]
+    status = auto
+    diff = auto
+    interactive = auto
+    branch = auto
+
 [alias]
 	st = status
 	ci = commit
@@ -9,5 +16,4 @@
 	di = diff
 
 [core]
-	excludesfile = /home/srid/.gitignore
 	quotepath = false
