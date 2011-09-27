@@ -16,6 +16,9 @@ def emacs_update():
         local('wget -N http://www.emacswiki.org/emacs/download/anything-match-plugin.el')
 
         local('wget -N http://www.emacswiki.org/emacs/download/workspaces.el')
+        local('wget -N http://jblevins.org/projects/markdown-mode/markdown-mode.el')
+        local('wget -N https://github.com/overtone/live-coding-emacs/raw/master/lib/blackbored.el')
+        local('wget -N http://adamspiers.org/computing/elisp/smooth-scrolling.el')
     
 
 up = emacs_update

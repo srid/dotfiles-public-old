@@ -34,8 +34,11 @@
   (when (< emacs-major-version 24)
     (when
         (load
-         (expand-file-name "~/.emacs.d/elpa/package.el"))
-      (package-initialize)))
+         (expand-file-name "~/.emacs.d/elpa/package.el"))))
+  (package-initialize)
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (package-initialize)
 
   (defun kill-all-buffers ()
     "Kill all buffers."
@@ -71,6 +74,11 @@
   (ido-mode t)
   (setq ido-enable-flex-matching t)
   (global-set-key (kbd "M-n") 'ido-switch-buffer)
+  (require 'smex) ;; better M-x
+  (smex-initialize)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ;; old
 
   ;; appearance
   (if osx
@@ -80,6 +88,7 @@
   (color-theme-initialize)
   (color-theme-deep-blue)
   (global-hl-line-mode 1)
+  (require 'smooth-scrolling)
   
   ;; Programming
   (setq-default indent-tabs-mode nil)         ;; spaces, not tabs!
@@ -94,6 +103,13 @@
   (require 'coffee-mode)
   (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+  (autoload 'markdown-mode "markdown-mode.el"
+    "Major mode for editing Markdown files" t)
+  (setq auto-mode-alist
+        (cons '("\\.md" . markdown-mode) auto-mode-alist))
+  (require 'rainbow-delimiters)
+  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+  ;(setq-default frame-background-mode 'dark)
 
   ;; Peepopen
   (when osx
@@ -118,8 +134,7 @@
     (interactive)
     (kill-all-buffers)
     (tcp-server-start))
-  
-  (tcp-server-start))
+  )
 
 
 (custom-set-variables
