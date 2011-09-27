@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="bira"
+export ZSH_THEME="cypher"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -57,6 +57,13 @@ function svnst {
 function svndi {
     svn diff | colordiff | less -R
 }
+
+alias git=hub
+alias g=hub
+function gs { g st }
+
+# octopress
+alias r=/usr/local/Cellar/ruby/1.9.2-p290/bin/rake
 
 # auto correction is more annoying than helpful
 unsetopt correct_all
