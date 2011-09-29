@@ -2,7 +2,6 @@
 # This script is meant to be run on new machines with newly created user
 # account.
 
-
 function symlink {
     target=$1
     link=$2
@@ -26,3 +25,11 @@ if [ `uname` == "Darwin" ]; then
     echo "You're on a Mac."
     echo "Add '. ~/.bashrc-custom.sh' in ~/.profile"
 fi
+
+echo "Read this script to see programs to install"
+
+# apt-get install emacs-snapshot-gtk tmux zsh git-core wmctrl \
+#   build-essential python-dev ack-grep colordiff multitail tig \
+#   msttcorefonts
+
+# brew install ...

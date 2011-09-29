@@ -1,6 +1,6 @@
 [user]
-	email = sridharr@activestate.com
-	name = Sridhar Ratnakumar
+    email = sridharr@activestate.com
+    name = Sridhar Ratnakumar
 
 [color]
     status = auto
@@ -10,15 +10,15 @@
 
 [alias]
     l  = log --oneline --decorate
-	st = status -sb
-	ci = commit
-	co = checkout
-	br = branch
-	di = diff --word-diff
+    st = status -sb
+    ci = commit
+    co = checkout
+    br = branch
+    di = diff --word-diff
 
 [core]
-	quotepath = false
+    quotepath = false
 
 # http://defunkt.io/hub/
 [github]
-	user = srid
+    user = srid
