@@ -11,26 +11,11 @@ function symlink {
     ln -sf $target $link
 }
 
-for dotfile in .bashrc-custom.sh .fonts .gitconfig .hgrc .screenrc \
+for dotfile in .emacs .bashrc-custom.sh .fonts .gitconfig .hgrc .screenrc \
                .xbindkeysrc .zshrc .vimrc .buildout .sources .tmux.conf;
 do
     symlink `pwd`/$dotfile ~/$dotfile;
 done
-
-
-# symlink .emacs
-symlink `pwd`/emacs/.emacs ~/.emacs
-
-# write .freenode.el (without password)
-if [ -a ~/.freenode.el ]; then
-    echo 'retaining ~/.freenode.el'
-    else
-    echo 'writing ~/.freenode.el'
-    echo '(setq passwd "")' > ~/.freenode.el
-    echo 'setting perms ~/.freenode.el'
-    chmod og-rwx ~/.freenode.el
-fi
-
 
 # on mac, something needs to be done
 if [ `uname` == "Darwin" ]; then
