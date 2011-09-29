@@ -16,18 +16,7 @@ do
     symlink `pwd`/$dotfile ~/$dotfile;
 done
 
-# on mac, something needs to be done
-if [ `uname` == "Darwin" ]; then
-    echo
-    echo
-    echo "!!!!!! READ THIS !!!!!"
-    echo
-    echo "You're on a Mac."
-    echo "Add '. ~/.bashrc-custom.sh' in ~/.profile"
-fi
-
-echo "Read this script to see programs to install"
-
+echo "Read this script to see programs to install."
 # apt-get install emacs-snapshot-gtk tmux zsh git-core wmctrl \
 #   build-essential python-dev ack-grep colordiff multitail tig \
 #   msttcorefonts
