@@ -1,6 +1,0 @@
-[submodule "emacs/external/org-mode"]
-	path = emacs/external/org-mode
-	url = git://repo.or.cz/org-mode.git
-[submodule "emacs/external/eproject"]
-	path = emacs/external/eproject
-	url = git://github.com/jrockway/eproject.git
