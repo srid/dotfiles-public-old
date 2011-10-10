@@ -23,7 +23,7 @@
 (defvar my-packages
   '(starter-kit
     starter-kit-lisp starter-kit-ruby starter-kit-js starter-kit-bindings starter-kit-eshell
-    yasnippet color-theme color-theme-solarized
+    yasnippet color-theme-solarized
     clojurescript-mode clojure-mode clojure-test-mode
     markdown-mode yaml-mode)
   "A list of packages to ensure are installed at launch.")
@@ -31,11 +31,12 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; http://www.emacswiki.org/emacs/LayoutRestore
-(require 'layout-restore)
-(global-set-key [?\C-c ?l] 'layout-save-current)
-(global-set-key [?\C-c ?\C-l ?\C-l] 'layout-restore)
-(global-set-key [?\C-c ?\C-l ?\C-c] 'layout-delete-current)
+;; .local/bin to PATH
+(setenv "PATH" (mapconcat 'identity (list (expand-file-name "~/.local/bin")
+                                          (getenv "PATH")) ":"))
+
+;; Alt+i
+(global-set-key [?\M-i] 'ido-switch-buffer)
 
 ;; parentheses friendly
 ;; http://stackoverflow.com/questions/2413047/
@@ -46,6 +47,9 @@
         "orange1" "yellow1" "greenyellow" "green1"
         "springgreen1" "cyan1" "slateblue1" "magenta1" "purple"))
 
+;; repl synhl
+(add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)
+
 ;; Peepopen
 (when osx
   (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
@@ -55,6 +59,22 @@
   (textmate-mode)
   (setq ns-pop-up-frames nil))
 
-(require 'color-theme)
-;; broken -- (color-theme-initialize)
+;; Solarized theme
+(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+(require 'color-theme-solarized)
+(color-theme-solarized-light)
+(when osx
+  (set-default-font "Consolas-14"))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(menu-bar-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
