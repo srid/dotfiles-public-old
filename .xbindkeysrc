@@ -30,7 +30,7 @@
 # NOTE: use `xbindkeys -k` to come up with keycodes
 
 
-"wmctrl -a srid@behemoth || wmctrl -x -a Terminal"
+"wmctrl -a sridharr@terror || wmctrl -x -a Terminal"
     m:0xc + c:45
     Control+Alt + k 
 
@@ -38,7 +38,7 @@
     m:0xc + c:44
     Control+Alt + j
 
-"wmctrl -x -a Firefox"
+"wmctrl -x -a Chrome"
     m:0xc + c:30
     Control+Alt + u
 
@@ -46,7 +46,6 @@
 "wmctrl -x -a Artha"
     m:0xc + c:57
     Control+Alt + n
-
 
 
 #Screenshot

@@ -22,11 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-if [[ `hostname` =~ elephant(\..*)? ]]; then
-    export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-else
-    export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-fi
+export PATH=$HOME/Library/Python/2.7/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # ssh keys
 keychain ~/.ssh/*id_rsa
@@ -67,3 +63,6 @@ alias r=/usr/local/Cellar/ruby/1.9.2-p290/bin/rake
 
 # auto correction is more annoying than helpful
 unsetopt correct_all
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" && rvm use 1.9.2
+

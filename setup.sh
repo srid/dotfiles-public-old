@@ -17,8 +17,6 @@ do
 done
 
 echo "Read this script to see programs to install."
-# apt-get install emacs-snapshot-gtk tmux zsh git-core wmctrl \
-#   build-essential python-dev ack-grep colordiff multitail tig \
-#   msttcorefonts
+# sudo apt-get install tmux zsh git-core wmctrl build-essential python-dev ack-grep colordiff multitail tig  msttcorefonts autojump
 
 # brew install ...

@@ -23,7 +23,7 @@
 (defvar my-packages
   '(starter-kit
     starter-kit-lisp starter-kit-ruby starter-kit-js starter-kit-bindings starter-kit-eshell
-    yasnippet color-theme-solarized
+    yasnippet color-theme color-theme-solarized
     clojurescript-mode clojure-mode clojure-test-mode
     markdown-mode yaml-mode)
   "A list of packages to ensure are installed at launch.")
@@ -52,19 +52,26 @@
 
 ;; Peepopen
 (when osx
-  (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
-  (require 'textmate)
   (add-to-list 'load-path "~/.emacs.d/vendor/")
+  (require 'textmate)
   (require 'peepopen)
   (textmate-mode)
   (setq ns-pop-up-frames nil))
 
+;; Coffee Script indentation
+(defun coffee-custom ()
+  "coffee-mode-hook"
+ (set (make-local-variable 'tab-width) 2))
+(add-hook 'coffee-mode-hook
+  '(lambda() (coffee-custom)))
+
 ;; Solarized theme
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (require 'color-theme-solarized)
-(color-theme-solarized-light)
-(when osx
-  (set-default-font "Consolas-14"))
+;(color-theme-solarized-dark)
+(if osx
+  (set-default-font "Consolas-14")
+  (set-default-font "Consolas-12"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
