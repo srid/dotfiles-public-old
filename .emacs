@@ -53,6 +53,7 @@
 ;; Peepopen
 (when osx
   (add-to-list 'load-path "~/.emacs.d/vendor/")
+  (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
   (require 'textmate)
   (require 'peepopen)
   (textmate-mode)
@@ -67,8 +68,8 @@
 
 ;; Solarized theme
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
-(require 'color-theme-solarized)
-;(color-theme-solarized-dark)
+;(require 'color-theme-solarized)
+;(color-theme-solarized-light)
 (if osx
   (set-default-font "Consolas-14")
   (set-default-font "Consolas-12"))
