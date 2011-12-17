@@ -58,8 +58,7 @@ alias git=hub
 alias g=hub
 function gs { g st }
 
-# octopress
-alias r=/usr/local/Cellar/ruby/1.9.2-p290/bin/rake
+export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH
 
 # auto correction is more annoying than helpful
 unsetopt correct_all
