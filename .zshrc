@@ -58,10 +58,9 @@ alias git=hub
 alias g=hub
 function gs { g st }
 
-export PATH=/usr/local/Cellar/ruby/1.9.2-p290/bin:$PATH
-
 # auto correction is more annoying than helpful
 unsetopt correct_all
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" && rvm use 1.9.2
+# brew install rbenv ruby-build
+eval "$(rbenv init -)"
 
