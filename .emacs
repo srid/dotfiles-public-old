@@ -23,7 +23,7 @@
 (defvar my-packages
   '(starter-kit
     starter-kit-lisp starter-kit-ruby starter-kit-js starter-kit-bindings starter-kit-eshell
-    yasnippet color-theme color-theme-solarized
+    yasnippet solarized-theme
     clojurescript-mode clojure-mode clojure-test-mode
     markdown-mode yaml-mode)
   "A list of packages to ensure are installed at launch.")
@@ -67,11 +67,10 @@
   '(lambda() (coffee-custom)))
 
 ;; Solarized theme
-(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
-;(require 'color-theme-solarized)
-;(color-theme-solarized-light)
+(require 'color-theme)
+(color-theme-solarized-dark)
 (if osx
-  (set-default-font "Consolas-13")
+  (set-default-font "Consolas-12")
   (set-default-font "Consolas-12"))
 
 (custom-set-variables
