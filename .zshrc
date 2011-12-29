@@ -62,5 +62,5 @@ function gs { g st }
 unsetopt correct_all
 
 # brew install rbenv ruby-build
-eval "$(rbenv init -)"
+eval "$(/usr/local/bin/rbenv init -)"
 
