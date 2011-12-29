@@ -71,7 +71,7 @@
 ;(require 'color-theme-solarized)
 ;(color-theme-solarized-light)
 (if osx
-  (set-default-font "Consolas-14")
+  (set-default-font "Consolas-13")
   (set-default-font "Consolas-12"))
 
 (custom-set-variables
